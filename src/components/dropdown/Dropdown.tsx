@@ -21,8 +21,6 @@ export const Dropdown: FC<DropdownProps> = ({
 
   const menuRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [menuBase, setMenuBase] = useState('');
-  const [displayItems, setDisplayItems] = useState(items);
 
   useEffect(() => {
     const clickHandler = (e: MouseEvent) => {
