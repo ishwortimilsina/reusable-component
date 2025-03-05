@@ -1,0 +1,14 @@
+.dropdown-item {
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  border-radius: 5px;
+}
+
+.dropdown-item:hover {
+  background-color: #d5d5d5;
+}
+
+.dropdown-item.itemSelected {
+  background-color: #b9b9b9;
+}

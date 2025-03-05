@@ -1,0 +1,28 @@
+.dropdown {
+  position: relative;
+  width: fit-content;
+}
+
+.dropdownBase {
+  border: solid thin grey;
+  border-radius: 8px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+.dropdownMenu {
+  border: solid thin grey;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  min-width: 150px;
+  padding: 5px;
+}
+
+.dropdownMenuList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin: 0;
+}
