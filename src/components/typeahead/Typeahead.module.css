@@ -1,0 +1,12 @@
+.typeaheadInput {
+  padding: 8px 15px;
+  font-size: 1.3em;
+  border-radius: 8px;
+  min-width: 500px;
+}
+
+.typeaheadResults {
+  border: solid thin grey;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
