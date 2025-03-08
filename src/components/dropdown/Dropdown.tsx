@@ -25,7 +25,7 @@ export const Dropdown: FC<DropdownProps> = ({
   useEffect(() => {
     const clickHandler = (e: MouseEvent) => {
       if (menuRef.current) {
-        if (!menuRef.current.contains(e.target as any)) {
+        if (!menuRef.current.contains(e.target as Node)) {
           setOpen(false);
         }
       }
