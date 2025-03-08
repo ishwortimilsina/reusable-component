@@ -1,5 +1,6 @@
 import { FC, ReactNode, useEffect } from "react";
 import classes from './Modal.module.css';
+import { createPortal } from "react-dom";
 
 interface ModalProps {
   open: boolean;
@@ -30,7 +31,7 @@ export const Modal: FC<ModalProps> = ({ open, children, closeModal }) => {
     }
   };
 
-  return (
+  return createPortal(
     <div className={classes.modalContainer} onClick={handleBackdropClick}>
       <div className={classes.modalDialog}>
         <div className={classes.modalHeader}>
@@ -38,6 +39,7 @@ export const Modal: FC<ModalProps> = ({ open, children, closeModal }) => {
         </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
