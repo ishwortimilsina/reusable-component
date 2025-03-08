@@ -1,10 +1,10 @@
 import './App.css'
-import { TypeaheadUser } from './components/typeahead/TypeaheadUser';
+import { ModalUser } from './components/modal/ModalUser';
 
 function App() {
   return (
     <>
-      <TypeaheadUser />
+      <ModalUser />
     </>
   )
 }

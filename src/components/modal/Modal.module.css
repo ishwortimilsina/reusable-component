@@ -1,0 +1,19 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #0000006f;
+  z-index: 100;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.modalDialog {
+  padding: 10px 20px;
+  box-shadow: 1px 1px 5px 1px #b4b4b4;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
