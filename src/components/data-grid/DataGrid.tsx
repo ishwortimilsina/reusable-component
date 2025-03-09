@@ -1,15 +1,7 @@
 import { ReactNode, useState } from 'react';
-import React from 'react';
 import classes from './DataGrid.module.css';
 import { usePages } from './usePages';
-
-const debounce = <T extends (...args: any) => void>(fn: T, delay: number) => {
-  let timer: ReturnType<typeof setTimeout>;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timer);
-    setTimeout(() => fn(...args), delay);
-  };
-};
+import { useSearch } from './useSearch';
 
 interface DataGridProps<T extends { id: string | number; [key: string]: any }> {
   data: T[],
@@ -28,8 +20,7 @@ export const DataGrid = <T extends { id: string | number; [key: string]: any }>(
 }: DataGridProps<T>) => {
   const [currentPageNum, setCurrentPageNum] = useState(1);
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [items, setItems] = useState(data);
+  const { items, searchQuery, handleQueryChange } = useSearch({ data });
 
   const { pageItems, numOfPages } = usePages({
     data: items,
@@ -41,18 +32,6 @@ export const DataGrid = <T extends { id: string | number; [key: string]: any }>(
     throw "Headers must be present and have at least one item";
   }
 
-  const handleSearchQueryChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(target.value);
-    debounce((val) => {
-      if (val) {
-        const newItems = items.filter(it => it.Name.toLowerCase().includes(val.toLowerCase()));
-        setItems(newItems);
-      } else {
-        setItems(data);
-      }
-    }, 200)(target.value);
-  };
-
   return (
     <div className={classes.datagridContainer}>
       {gridTitle ?? (
@@ -60,7 +39,7 @@ export const DataGrid = <T extends { id: string | number; [key: string]: any }>(
           <h3>Data Grid</h3>
           <input
             type="search"
-            onChange={handleSearchQueryChange}
+            onChange={handleQueryChange}
             value={searchQuery}
           />
         </div>
