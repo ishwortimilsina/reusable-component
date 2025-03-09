@@ -1,10 +1,10 @@
 import './App.css'
-import { ModalUser } from './components/modal/ModalUser';
+import { DataGridUser } from './components/data-grid/DataGridUser';
 
 function App() {
   return (
     <>
-      <ModalUser />
+      <DataGridUser />
     </>
   )
 }

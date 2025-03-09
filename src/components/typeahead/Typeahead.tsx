@@ -35,7 +35,7 @@ export const Typeahead = <T,>({
       setItems([]);
       setOpen(false);
     }
-  });
+  }, 100);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);

@@ -1,0 +1,40 @@
+export const headers = [
+  { "key": "id", "label": "ID" },
+  { "key": "Name", "label": "Name" },
+  { "key": "Age", "label": "Age" },
+  { "key": "Country", "label": "Country" },
+  { "key": "Occupation", "label": "Occupation" }
+];
+
+export const data = [
+  { "id": 1, "Name": "John Doe", "Age": 28, "Country": "USA", "Occupation": "Engineer" },
+  { "id": 2, "Name": "Jane Smith", "Age": 34, "Country": "Canada", "Occupation": "Designer" },
+  { "id": 3, "Name": "Alice Johnson", "Age": 25, "Country": "UK", "Occupation": "Developer" },
+  { "id": 4, "Name": "Bob Brown", "Age": 42, "Country": "Australia", "Occupation": "Manager" },
+  { "id": 5, "Name": "Charlie Davis", "Age": 29, "Country": "USA", "Occupation": "Product Owner" },
+  { "id": 6, "Name": "John Doe", "Age": 32, "Country": "UK", "Occupation": "Designer" },
+  { "id": 7, "Name": "Jane Smith", "Age": 28, "Country": "Germany", "Occupation": "Product Owner" },
+  { "id": 8, "Name": "Alice Johnson", "Age": 28, "Country": "Canada", "Occupation": "Manager" },
+  { "id": 9, "Name": "Bob Brown", "Age": 23, "Country": "Australia", "Occupation": "Developer" },
+  { "id": 10, "Name": "Charlie Davis", "Age": 44, "Country": "Canada", "Occupation": "Designer" },
+  { "id": 11, "Name": "Michael Williams", "Age": 39, "Country": "USA", "Occupation": "Designer" },
+  { "id": 12, "Name": "David Miller", "Age": 39, "Country": "Australia", "Occupation": "Manager" },
+  { "id": 13, "Name": "Sarah Wilson", "Age": 35, "Country": "USA", "Occupation": "Engineer" },
+  { "id": 14, "Name": "James Moore", "Age": 39, "Country": "Canada", "Occupation": "Designer" },
+  { "id": 15, "Name": "Patricia Taylor", "Age": 22, "Country": "UK", "Occupation": "Manager" },
+  { "id": 16, "Name": "Linda Anderson", "Age": 28, "Country": "Australia", "Occupation": "Developer" },
+  { "id": 17, "Name": "Mark Thomas", "Age": 25, "Country": "Canada", "Occupation": "Product Owner" },
+  { "id": 18, "Name": "Steven Jackson", "Age": 40, "Country": "USA", "Occupation": "Developer" },
+  { "id": 19, "Name": "Mary White", "Age": 29, "Country": "Germany", "Occupation": "Manager" },
+  { "id": 20, "Name": "William Harris", "Age": 22, "Country": "Germany", "Occupation": "Product Owner" },
+  { "id": 21, "Name": "Elizabeth Clark", "Age": 28, "Country": "Canada", "Occupation": "Manager" },
+  { "id": 22, "Name": "Richard Lewis", "Age": 26, "Country": "Canada", "Occupation": "Manager" },
+  { "id": 23, "Name": "Susan Walker", "Age": 43, "Country": "UK", "Occupation": "Manager" },
+  { "id": 24, "Name": "Joseph Allen", "Age": 22, "Country": "Canada", "Occupation": "Developer" },
+  { "id": 25, "Name": "Karen Young", "Age": 26, "Country": "UK", "Occupation": "Designer" },
+  { "id": 26, "Name": "Thomas King", "Age": 48, "Country": "Germany", "Occupation": "Engineer" },
+  { "id": 27, "Name": "Nancy Scott", "Age": 22, "Country": "USA", "Occupation": "Manager" },
+  { "id": 28, "Name": "Matthew Green", "Age": 48, "Country": "USA", "Occupation": "Engineer" },
+  { "id": 29, "Name": "Dorothy Adams", "Age": 34, "Country": "Canada", "Occupation": "Designer" },
+  { "id": 30, "Name": "Kevin Baker", "Age": 48, "Country": "USA", "Occupation": "Manager" }
+];
