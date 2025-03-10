@@ -4,7 +4,7 @@ import { data, headers } from "./gridData";
 export const DataGridUser = () => {
   return (
     <DataGrid
-      headers={headers}
+      columns={headers}
       data={data}
     />
   );

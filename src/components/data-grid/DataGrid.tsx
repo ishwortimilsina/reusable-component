@@ -2,10 +2,27 @@ import { ReactNode, useState } from 'react';
 import classes from './DataGrid.module.css';
 import { usePages } from './usePages';
 import { useSearch } from './useSearch';
+import { useColumnSort } from './useColumnSort';
+import { Column } from './gridData';
+
+type SortDir = 'asc' | 'desc' | '';
+
+const selectSortDir = (currSort?: SortDir): SortDir => {
+  switch (currSort) {
+    case 'asc':
+      return 'desc';
+    case 'desc':
+      return '';
+    case '':
+      return 'asc';
+    default:
+      return '';
+  }
+};
 
 interface DataGridProps<T extends { id: string | number; [key: string]: any }> {
   data: T[],
-  headers: { key: string, label: string }[]
+  columns: Column[],
   getValue?: (datum: T, key: string | number) => string | number;
   rowsNum?: number;
   gridTitle?: ReactNode;
@@ -13,24 +30,34 @@ interface DataGridProps<T extends { id: string | number; [key: string]: any }> {
 
 export const DataGrid = <T extends { id: string | number; [key: string]: any }>({
   data,
-  headers,
+  columns,
   getValue,
   rowsNum = 10,
   gridTitle
 }: DataGridProps<T>) => {
   const [currentPageNum, setCurrentPageNum] = useState(1);
+  const [sort, setSort] = useState<{ sortCol?: Column; sortDir?: 'asc' | 'desc' | '' }>({});
 
   const { items, searchQuery, handleQueryChange } = useSearch({ data });
 
+  const { sortedData } = useColumnSort({ data: items, sortCol: sort.sortCol, sortDir: sort.sortDir });
+
   const { pageItems, numOfPages } = usePages({
-    data: items,
+    data: sortedData,
     rowsPerPage: rowsNum,
     currentPageNum
   });
 
-  if (!headers.length) {
-    throw "Headers must be present and have at least one item";
+  if (!columns.length) {
+    throw "Column definitions not provided";
   }
+
+  const handleSortChange = (colIdx: number) => {
+    if (columns[colIdx].sortable) {
+      const newSortDir = selectSortDir(sort.sortDir);
+      setSort({ sortCol: columns[colIdx], sortDir: newSortDir });
+    }
+  };
 
   return (
     <div className={classes.datagridContainer}>
@@ -47,9 +74,10 @@ export const DataGrid = <T extends { id: string | number; [key: string]: any }>(
       <table className={classes.datagridTable}>
         <thead>
           <tr>
-            {headers.map((head) => (
-              <th key={head.key} className={classes.datagridTh}>
+            {columns.map((head, idx) => (
+              <th key={head.field} className={classes.datagridTh} onClick={() => handleSortChange(idx)}>
                 {head.label}
+                <small><i>{sort.sortCol?.field === head.field && sort.sortDir ? ` (${sort.sortDir})` : ''}</i></small>
               </th>
             ))}
           </tr>
@@ -58,16 +86,16 @@ export const DataGrid = <T extends { id: string | number; [key: string]: any }>(
           {pageItems.length ? (
             pageItems.map((item) => (
               <tr key={item.id} className={classes.datagridTr}>
-                {headers.map((header) => (
-                  <td key={header.key} className={classes.datagridTd}>
-                    {getValue ? getValue(item, header.key) : item[header.key] as any}
+                {columns.map((col) => (
+                  <td key={col.field} className={classes.datagridTd}>
+                    {getValue ? getValue(item, col.field) : item[col.field] as any}
                   </td>
                 ))}
               </tr>
             ))
           ) : (
             <tr className={classes.dataGridNoData}>
-              <td colSpan={headers.length}>No data available</td>
+              <td colSpan={columns.length}>No data available</td>
             </tr>
           )}
         </tbody>
