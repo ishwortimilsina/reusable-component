@@ -1,10 +1,10 @@
 import './App.css'
-import { StepperUser } from './components/stepper/StepperUser';
+import { TooltipUser } from './components/tooltip/TooltipUser';
 
 function App() {
   return (
     <>
-      <StepperUser />
+      <TooltipUser />
     </>
   )
 }

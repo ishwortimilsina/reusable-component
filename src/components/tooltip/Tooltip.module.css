@@ -1,0 +1,14 @@
+.tooltipBase {
+  box-sizing: border-box;
+  position: fixed;
+  top: 95%;
+}
+
+.tooltip {
+  position: fixed;
+  width: fit-content;
+  background-color: black;
+  color: white;
+  padding: 3px 15px;
+  border-radius: 5px;
+}
