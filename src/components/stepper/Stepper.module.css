@@ -1,0 +1,53 @@
+.stepperContainer {}
+
+.stepper {}
+
+.disabledStepper {
+  .stepperTitle {
+    color: grey;
+  }
+
+  .stepperIndex {
+    border-color: grey;
+  }
+}
+
+.stepperTitle {
+  color: midnightblue;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stepperIndex {
+  border: solid thin midnightblue;
+  border-radius: 50%;
+  padding: 3px 10px;
+}
+
+.stepperMain {
+  border-left: solid 2px grey;
+  padding-left: 40px;
+  margin-left: 15px;
+  max-height: 1000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 2s ease, opacity 0.5s ease;
+}
+
+.stepperMain.expanded {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.stepperMain.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.stepperControls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

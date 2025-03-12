@@ -1,10 +1,10 @@
 import './App.css'
-import { DataGridUser } from './components/data-grid/DataGridUser';
+import { StepperUser } from './components/stepper/StepperUser';
 
 function App() {
   return (
     <>
-      <DataGridUser />
+      <StepperUser />
     </>
   )
 }
