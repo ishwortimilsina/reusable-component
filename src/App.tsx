@@ -1,10 +1,10 @@
 import './App.css'
-import { TooltipUser } from './components/tooltip/TooltipUser';
+import { ToastUser } from './components/toast/ToastUser';
 
 function App() {
   return (
     <>
-      <TooltipUser />
+      <ToastUser />
     </>
   )
 }
