@@ -1,0 +1,36 @@
+.accordion {
+  min-width: 500px;
+}
+
+.accordionHeader {
+  padding: 5px 20px;
+  background-color: rgb(165, 172, 179);
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(129, 135, 142);
+  }
+}
+
+.accordionContent {
+  border: solid 1px grey;
+  border-radius: 5px;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 1.5s ease, opacity 0.5s ease;
+}
+
+.accordionContent.expanded {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.accordionContent.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordionContentInner {
+  padding: 20px;
+}
