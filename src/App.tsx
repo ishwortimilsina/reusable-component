@@ -1,10 +1,10 @@
 import './App.css'
-import { AccordionUser } from './components/accordion/AccordionUser';
+import { RatingUser } from './components/rating/RatingUser';
 
 function App() {
   return (
     <>
-      <AccordionUser />
+      <RatingUser />
     </>
   )
 }
