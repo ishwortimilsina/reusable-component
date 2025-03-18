@@ -1,10 +1,10 @@
 import './App.css'
-import { RatingUser } from './components/rating/RatingUser';
+import { CurrencyConverterUser } from './components/currency-converter/CurrencyConverterUser';
 
 function App() {
   return (
     <>
-      <RatingUser />
+      <CurrencyConverterUser />
     </>
   )
 }
